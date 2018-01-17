@@ -1,4 +1,4 @@
-h1. Bull Cow Game
+# Bull Cow Game
 
 This is a word-guessing game. It's implemented in a terminal executable.
 
