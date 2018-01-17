@@ -15,7 +15,8 @@ enum class EGuessStatus
 {
 	OK,
 	NotIsogram,
-	NotLowercase
+	NotLowercase,
+	Invalid
 };
 
 enum class EResetStatus
