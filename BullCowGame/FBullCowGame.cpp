@@ -71,9 +71,8 @@ void FBullCowGame::StartGame()
 {
 }
 
-
-bool FBullCowGame::CheckGuessValidity(FString guessString) const
+EWordStatus FBullCowGame::CheckGuessValidity(FString guessString) const
 {
 	// TODO: implement this
-	return false;
+	return EWordStatus::OK;
 }
