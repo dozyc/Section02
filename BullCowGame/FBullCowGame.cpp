@@ -71,8 +71,21 @@ void FBullCowGame::StartGame()
 {
 }
 
-EWordStatus FBullCowGame::CheckGuessValidity(FString guessString) const
+EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
-	// TODO: implement this
-	return EWordStatus::OK;
+	// error if the guess isn't an isogram
+	if (false)
+	{
+		return EGuessStatus::NotIsogram;
+	}
+	// error if the guess isn't all lowercase
+	else if (false)
+	{
+		return EGuessStatus::NotLowercase;
+	}
+	// otherwise return ok
+	else
+	{
+		return EGuessStatus::OK;
+	}
 }

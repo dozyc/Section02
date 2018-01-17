@@ -20,6 +20,7 @@ void PrintIntro() {
 	return;
 };
 
+// TODO: ensure that the guess is valid, don't return until it is
 FText GetGuess() {
 	std::cout << "Guess #" << BCGame.GetCurrentTry() << std::endl;
 
@@ -46,7 +47,8 @@ void PlayGame()
 	{
 		std::cout << std::endl;
 		FText Guess = GetGuess();
-		// TODO: check that the guess is valid
+
+		EGuessStatus guessStatus = BCGame.CheckGuessValidity(Guess);
 
 		// let the game evaluate the guess
 		FBullCowCount GuessCounts = BCGame.EvaluateGuess(Guess);
