@@ -11,6 +11,9 @@
 using FText = std::string;
 using int32 = int;
 
+// local prototypes
+void PrintGameSummary();
+
 FBullCowGame BCGame; // instantiate a new game
 
 void PrintIntro() {
@@ -57,6 +60,24 @@ FText GetValidGuess() {
 	return Guess;
 }
 
+void PrintGameSummary()
+{
+	std::string finalMessage;
+	if (BCGame.IsGameWon())
+	{
+		finalMessage = "YOU FOUND THE HIDDEN WORD! YOU WIN!";
+	}
+	else
+	{
+		finalMessage = "Sorry, you lose. Better luck next time.";
+	}
+
+	std::cout << finalMessage << std::endl;
+	std::cout << std::endl;
+
+	return;
+}
+
 void PlayGame()
 {
 	BCGame.Reset();
@@ -74,19 +95,17 @@ void PlayGame()
 		std::cout << "Bulls = " << GuessCounts.Bulls << std::endl;
 		std::cout << "Cows = " << GuessCounts.Cows << std::endl;
 
-		if (BCGame.IsGameWon())
-		{
-			std::cout << "YOU FOUND THE HIDDEN WORD! YOU WIN!" << std::endl;
-			std::cout << std::endl;
-		}
+
 	}
 
-	// TODO: summarise game
+	PrintGameSummary();
+
+	return;
 }
 
 bool AskToPlayAgain()
 {
-	std::cout << "Do you want to play again? ";
+	std::cout << "Do you want to keep trying? (y/n)";
 	FText Response = "";
 	getline(std::cin, Response);
 
