@@ -1,4 +1,6 @@
 #include "FBullCowGame.h"
+#include <map>
+#define TMap std::map // Use Unreal type for practice
 
 using int32 = int;
 
@@ -46,6 +48,29 @@ FBullCowCount FBullCowGame::EvaluateGuess(FString Guess)
 	return GuessCounts;
 }
 
+bool FBullCowGame::IsIsogram(FString Word) const
+{
+	bool isIsogram = true;
+	TMap<char, bool> LetterSeen;
+
+	for (char Letter : Word)
+	{
+		Letter = tolower(Letter); // normalize to lowercase for comparisons
+
+		if (LetterSeen[Letter])
+		{
+			isIsogram = false;
+			break;
+		}
+		else
+		{
+			LetterSeen[Letter] = true;
+		}
+	}
+
+	return isIsogram;
+}
+
 
 FBullCowGame::FBullCowGame()
 {
@@ -70,10 +95,11 @@ void FBullCowGame::StartGame()
 {
 }
 
+
 EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
 	// error if the guess isn't an isogram
-	if (false)
+	if (!IsIsogram(Guess))
 	{
 		return EGuessStatus::NotIsogram;
 	}
