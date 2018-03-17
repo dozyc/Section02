@@ -48,12 +48,23 @@ FBullCowCount FBullCowGame::EvaluateGuess(FString Guess)
 	return GuessCounts;
 }
 
+/* IsIsogram runs in O(n) time. Worst case: all letters are touched once.
+ * Use LetterSeen hash to keep track of letters that have been seen.
+ * LetterSeen is intially empty, accessing LetterSeen[Letter] for the
+ * first time returns false.
+ * For each letter in the word, check LetterSeen[Letter]. It will be 
+ * false only the first time the letter is seen, then immediately set to true.
+ * From then on, if LetterSeen[Letter] is accessed
+ * again, it will return true, indicating that the letter has already
+ * appeared in the word before, so the word is not an isogram.
+ *
+ */
 bool FBullCowGame::IsIsogram(FString Word) const
 {
 	bool isIsogram = true;
 	TMap<char, bool> LetterSeen;
 
-	for (char Letter : Word)
+	for (char Letter : Word) // range-based for loop example
 	{
 		Letter = tolower(Letter); // normalize to lowercase for comparisons
 
