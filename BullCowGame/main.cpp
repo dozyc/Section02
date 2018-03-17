@@ -8,13 +8,18 @@
 #include "main.h"
 #include "FBullCowGame.h"
 
+// Aliases to normalize to Unreal datatypes
 using FText = std::string;
 using int32 = int;
 
-// local prototypes
+// local prototypes - forward declaration
+void PrintIntro();
+void PlayGame();
+FText GetValidGuess();
+bool AskToPlayAgain();
 void PrintGameSummary();
 
-FBullCowGame BCGame; // instantiate a new game
+FBullCowGame BCGame; // instantiate a new game - singleton
 
 void PrintIntro() {
 	// Introduce the game
@@ -25,7 +30,6 @@ void PrintIntro() {
 	return;
 };
 
-// TODO: ensure that the guess is valid, don't return until it is
 FText GetValidGuess() {
 	std::cout << "Guess #" << BCGame.GetCurrentTry() << std::endl;
 
@@ -78,6 +82,7 @@ void PrintGameSummary()
 	return;
 }
 
+// Play a signle game to completion: either the player wins or runs out of turns
 void PlayGame()
 {
 	BCGame.Reset();
@@ -94,8 +99,6 @@ void PlayGame()
 		std::cout << "Your guess was: \"" << Guess << "\"" << std::endl;
 		std::cout << "Bulls = " << GuessCounts.Bulls << std::endl;
 		std::cout << "Cows = " << GuessCounts.Cows << std::endl;
-
-
 	}
 
 	PrintGameSummary();
@@ -105,6 +108,9 @@ void PlayGame()
 
 bool AskToPlayAgain()
 {
+    // Since the word is not changed across "tries", I think it's better to frame
+    // this as more tries than playing again.
+    // TODO: give the option for a new isogram or to keep trying
 	std::cout << "Do you want to keep trying? (y/n)";
 	FText Response = "";
 	getline(std::cin, Response);

@@ -1,7 +1,12 @@
+/* Game Logic class - Implements game rules
+ * No view code or user interaction handling
+ */
+
 #pragma once
 
 #include <string>
 
+// Aliases to normalize to Unreal datatypes
 using FString = std::string;
 using int32 = int;
 
@@ -19,21 +24,15 @@ enum class EGuessStatus
 	Invalid
 };
 
-enum class EResetStatus
-{
-	OK,
-	NoHiddenWord
-};
-
 class FBullCowGame {
 public:
 
-	FBullCowGame(); // constructor
+	FBullCowGame(); // Constructor
 
-	void Reset(); // TODO - maybe do a non void return, maybe add an arg?;
+	void Reset();
 	void StartGame();
 	
-	// Getters - const means they can't change member variables values
+	// Getters - const means they can't change member variables' values
 	int32 GetMaxTries() const;
 	int32 GetCurrentTry() const;
 	bool IsGameWon() const;
@@ -45,11 +44,12 @@ public:
 
 	
 private:
-	// see constructor for initialisation
+	// See constructor for initialisation
 	int32 MyCurrentTry;
 	int32 MyMaxTries;
 	FString MyHiddenWord;
 	bool bGameWon;
 
 	bool IsIsogram(FString Word) const;
+    bool IsLowerCase(FString Word) const;
 };

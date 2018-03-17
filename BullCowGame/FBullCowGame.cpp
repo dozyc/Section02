@@ -1,7 +1,8 @@
 #include "FBullCowGame.h"
 #include <map>
-#define TMap std::map // Use Unreal type for practice
 
+// Aliases to normalize to Unreal datatypes
+#define TMap std::map
 using int32 = int;
 
 // Getters
@@ -82,7 +83,19 @@ bool FBullCowGame::IsIsogram(FString Word) const
 	return isIsogram;
 }
 
+bool FBullCowGame::IsLowerCase(FString Word) const
+{
+    for (char Letter: Word)
+    {
+        if (!islower(Letter))
+        {
+            return false;
+        }
+    }
+    return true;
+}
 
+// Constructor
 FBullCowGame::FBullCowGame()
 {
 	Reset();
@@ -91,6 +104,8 @@ FBullCowGame::FBullCowGame()
 void FBullCowGame::Reset()
 {
 	constexpr int32 MAX_TRIES = 8;
+    
+    // HIDDEN_WORD must be an isogram!
 	const FString HIDDEN_WORD = "planet";
 	bGameWon = false;
 
@@ -101,12 +116,6 @@ void FBullCowGame::Reset()
 	return;
 }
 
-// Do I even need this function?
-void FBullCowGame::StartGame()
-{
-}
-
-
 EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
 	// error if the guess isn't an isogram
@@ -115,7 +124,7 @@ EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 		return EGuessStatus::NotIsogram;
 	}
 	// error if the guess isn't all lowercase
-	else if (false)
+	if (!IsLowerCase(Guess))
 	{
 		return EGuessStatus::NotLowercase;
 	}
