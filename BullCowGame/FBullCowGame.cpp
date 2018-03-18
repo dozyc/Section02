@@ -118,19 +118,20 @@ void FBullCowGame::Reset()
 
 EGuessStatus FBullCowGame::CheckGuessValidity(FString Guess) const
 {
+	// TODO: check for all errors types and indicate all errors to user
+
 	// error if the guess isn't an isogram
 	if (!IsIsogram(Guess))
 	{
 		return EGuessStatus::NotIsogram;
 	}
+
 	// error if the guess isn't all lowercase
 	if (!IsLowerCase(Guess))
 	{
 		return EGuessStatus::NotLowercase;
 	}
-	// otherwise return ok
-	else
-	{
-		return EGuessStatus::OK;
-	}
+
+	// no errors - return ok
+	return EGuessStatus::OK;
 }
