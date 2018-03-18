@@ -25,10 +25,10 @@
 
 /* Begin PBXFileReference section */
 		9529EA72205CFBB200AF3198 /* BullCowGameMac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BullCowGameMac; sourceTree = BUILT_PRODUCTS_DIR; };
-		9529EA7C205CFBD200AF3198 /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = main.h; path = ../../BullCowGame/main.h; sourceTree = "<group>"; };
-		9529EA7D205CFBD200AF3198 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../BullCowGame/main.cpp; sourceTree = "<group>"; };
-		9529EA7E205CFBD200AF3198 /* FBullCowGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBullCowGame.h; path = ../../BullCowGame/FBullCowGame.h; sourceTree = "<group>"; };
-		9529EA7F205CFBD200AF3198 /* FBullCowGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FBullCowGame.cpp; path = ../../BullCowGame/FBullCowGame.cpp; sourceTree = "<group>"; };
+		9529EA7C205CFBD200AF3198 /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = main.h; path = ../BullCowGame/main.h; sourceTree = "<group>"; };
+		9529EA7D205CFBD200AF3198 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../BullCowGame/main.cpp; sourceTree = "<group>"; };
+		9529EA7E205CFBD200AF3198 /* FBullCowGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBullCowGame.h; path = ../BullCowGame/FBullCowGame.h; sourceTree = "<group>"; };
+		9529EA7F205CFBD200AF3198 /* FBullCowGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FBullCowGame.cpp; path = ../BullCowGame/FBullCowGame.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +66,8 @@
 				9529EA7E205CFBD200AF3198 /* FBullCowGame.h */,
 				9529EA7F205CFBD200AF3198 /* FBullCowGame.cpp */,
 			);
-			path = BullCowGameMac;
-			sourceTree = "<group>";
+			name = BullCowGameMac;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -254,6 +254,7 @@
 				9529EA7B205CFBB200AF3198 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
